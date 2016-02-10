@@ -20,6 +20,6 @@ from django.contrib.auth import views
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
     url(r'^polls/', include('polls.urls', namespace = "polls")),
+    url(r'^accounts/', include('users_accounts.urls', namespace = "users_accounts")),
     url(r'^$', 'polls.views.home', name = "home" ),
-    url(r'^users/', include('users_accounts.urls', namespace = "users_accounts")),
 ]

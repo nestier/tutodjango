@@ -52,7 +52,7 @@ def vote(request, question_id):
         return HttpResponseRedirect(reverse('polls:results', args=(p.id,)))
 # Create your views here.here
 
-#@login_required
+@login_required
 def create_question(request):
     form = QuestionForm(request.POST or None)
     if form.is_valid():
