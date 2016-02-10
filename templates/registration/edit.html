@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block sub_menu %}
+<ul>
+    <li><a href="{% url 'home' %}">Back</a></li>
+</ul>
+{% endblock %}
+
+{% block content %}
+
+<h3>Create User</h3>
+
+<div class="form_container">
+    <form method="post" action="{% url 'users_accounts:edit_user' form.instance.id %}">{% csrf_token %}
+        {{ form.as_p  }}
+       <input type="submit" value="Create"/>
+    </form>
+</div>
+
+{% endblock %}

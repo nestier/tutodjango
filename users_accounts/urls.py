@@ -12,7 +12,7 @@ urlpatterns = [
             {
              'template_name':'registration/login.html',
             },name='login'),
-    url(r'^edit$', views.edit_user, name='edit_user'),
+    url(r'^(?P<user_id>[0-9]+)/edit$', views.edit_user, name='edit_user'),
     url(r'^new$', views.new_user, name='new_user'),
   #  url(r'^', include('django.contrib.auth.urls'))
         ]
