@@ -1,0 +1,33 @@
+<html>
+<head>
+    <title>{% block title %}Este es el base{% endblock %}</title>
+
+    <link rel="stylesheet" type="text/css" href="{{ STATIC_URL  }}css/style.css" />
+
+</head>
+<body>
+    <div id="header">
+        <div id="logo">Django Tutorial</div>
+            <ul>
+                <li><a href="{% url 'home' %}">Home</a></li><span>|</span>
+                <li><a href="{% url 'polls:index' %}">Questions</a></li><span>|</span>
+            </ul>
+            {% if user.is_authenticated %}
+                <a href="{% url 'users_accounts:logout' %}">Logout</a>
+            {% else %}
+                <a href="{% url 'users_accounts:login' %}">Login</a>
+            {% endif %}
+           <div id="sub_menu">
+           {% block sub_menu %}
+           {% endblock %}
+           </div>
+           {% block content %}This is the default content!{% endblock %}
+           <div id="footer">
+               <ul>
+                   <li>link #1</li>
+                   <li>link #2<content/li>
+                   <li>link #3</li>
+               </ul>
+           </div>
+</body>
+</html>

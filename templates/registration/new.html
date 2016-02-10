@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block sub_menu %}
+<ul>
+    <li><a href="{% url 'home' %}">Back</a></li>
+</ul>
+{% endblock %}
+
+{% block content %}
+
+<h3>Create User</h3>
+
+<div class="form_container">
+    <form method="post" action="new">{% csrf_token %}
+        {{ form.as_p  }}
+        {% comment %}
+        {{ form.as_ul  }}
+        {{ form.as_table  }}
+        {% endcomment %}
+        <input type="submit" value="Create"/>
+    </form>
+</div>
+
+{% endblock %}
