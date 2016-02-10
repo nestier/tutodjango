@@ -68,7 +68,6 @@ def edit_question(request, question_id):
     form = QuestionForm (request.POST or None, instance = a_question)
     if form.is_valid():
         question = form.save()
-        question.save()
         return redirect(reverse("polls:index"))
 
-    return render (request, "polls/my_template.html", {'form': form })
+    return render (request, "polls/edit_template.html", {'form': form })

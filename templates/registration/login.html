@@ -4,7 +4,11 @@
 <form action="." method="post">
     {% csrf_token %}
     {{ form  }}
-    <input type='hidden' name="next" value="{{ next }}"/>
+    {% if next  %}
+        <input type='hidden' name="next" value="{{ next }}"/>
+    {% else %}
+        <input type='hidden' name="next" value="{% url 'home' %}"/>
+    {% endif %}
     <input type="submit" value="Login"/>
 </form>
 {% endblock %}
