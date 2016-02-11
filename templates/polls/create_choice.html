@@ -1,8 +1,7 @@
 <h3> Question  </h3>
 
 <div class="form_container">
-    <form method="post" action="{% url 'polls:create_question' %}">{% csrf_token %}
-        {{ form.as_p }}
+    <form method="post" action="{% url 'polls:create_choice' question_id %}">{% csrf_token %}
         {{ choice_form.as_p }}
         <input type='submit' value="Create" />
     </form>

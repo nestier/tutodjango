@@ -1,0 +1,8 @@
+<h3> Choice  </h3>
+
+<div class="form_container">
+    <form method="post" action="{% url 'polls:edit_choice' question_id=question_id choice_id=choice_id %}">{% csrf_token %}
+        {{ choice_form.as_p }}
+        <input type='submit' value="Edit" />
+    </form>
+</div>    
