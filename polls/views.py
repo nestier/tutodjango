@@ -71,3 +71,7 @@ def edit_question(request, question_id):
         return redirect(reverse("polls:index"))
 
     return render (request, "polls/edit_template.html", {'form': form })
+
+def delete_question(request, question_id):
+    u = get_object_or_404(Question, pk=question_id).delete()
+    return HttpResponseRedirect(reverse('polls:index'))
